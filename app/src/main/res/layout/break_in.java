@@ -90,6 +90,7 @@ public class BreakIn extends AppCompatActivity {
     };
 
     private Button submitButton;
+    private TextView finalMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +100,7 @@ public class BreakIn extends AppCompatActivity {
         mVisible = true;
         mContentView = findViewById(R.id.fullscreen_content);
         submitButton = findViewById(R.id.submitButton);
+        finalMessage = findViewById(R.id.finalMessage);
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {
@@ -124,6 +126,10 @@ public class BreakIn extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 // display a message "Successfully disabled"
+                finalMessage.setText("Successfully disabled!");
+                submitButton.setVisibility(View.GONE);
+                mContentView.setVisibility(View.GONE);
+                submitButton.setVisibility(View.GONE);
             }
         });
     }
