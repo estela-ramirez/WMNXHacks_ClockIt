@@ -1,20 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+package com.example.tasks
 
-    <TextView
-        android:id="@+id/text_tasks"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TASKS"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+import android.app.Activity
+import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.widget.CheckBox
+import android.widget.TextView
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
+//import androidx.test.espresso.matcher.ViewMatchers.isChecked
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.*
+
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
+
+        Task1.isChecked = true
+        Task2.isChecked = true
+        Task3.isChecked = true
+
+        val CompletedTask = findViewById<TextView>(R.id.BeginButton)
+
+        Button.setOnClickListener {
+            //onButtonDeleteHistory(checkBox1)
+            Log.d("DEBUG", "I was clicked")
+            if (Task1.isChecked()) Task1.setChecked(false)
+            if (Task2.isChecked()) Task2.setChecked(false)
+            if (Task3.isChecked()) Task3.setChecked(false)
+            Task1.setVisibility(View.GONE)
+            Task2.setVisibility(View.GONE)
+            Task3.setVisibility(View.GONE)
+
+        }
+    }
+}
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        return when (item.itemId) {
+            R.id.action_search -> true
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+}
