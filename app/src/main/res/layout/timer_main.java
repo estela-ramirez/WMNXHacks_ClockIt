@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 mButtonGiveUp.setVisibility(View.GONE);
                 mTextViewCountDown.setVisibility(View.GONE);
                 timeRemaining.setVisibility(View.GONE);
-                message.setText("Time is Up!!");
+                message.setText("Time is up!!");
                 //mButtonSet.setVisibility(View.VISIBLE);
             }
         }.start();
