@@ -1,19 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#0099cc"
+    tools:context=".BreakIn">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
 
     <TextView
-        android:id="@+id/text_tools"
+        android:id="@+id/fullscreen_content"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:text="@string/dummy_content"
+        android:textColor="#33b5e5"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="5dp" />
+
+    <Button
+        android:id="@+id/submitButton"
+        style="?metaButtonBarButtonStyle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:layout_weight="1"
+        android:background="#0099FF"
+        android:text="Submit the answer"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+<!--    <FrameLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:fitsSystemWindows="true">-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/fullscreen_content_controls"-->
+<!--            style="?metaButtonBarStyle"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="bottom|center_horizontal"-->
+<!--            android:background="@color/black_overlay"-->
+<!--            android:orientation="horizontal"-->
+<!--            tools:ignore="UselessParent">-->
+
+
+    <EditText
+        android:id="@+id/doThisMessage"
+        android:layout_width="277dp"
+        android:layout_height="93dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Write the Pledge of Allegiance."
+        app:layout_constraintBottom_toBottomOf="@+id/fullscreen_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.107" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/fullscreen_content"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/messageTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Giving up? If so..."
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar2"
+        app:layout_constraintStart_toStartOf="@+id/toolbar2"
+        app:layout_constraintTop_toTopOf="@+id/fullscreen_content" />
+
+    <EditText
+        android:id="@+id/userText"
+        android:layout_width="414dp"
+        android:layout_height="515dp"
+        android:layout_alignBottom="@id/submitButton"
+        android:layout_marginBottom="464dp"
+        android:layout_toRightOf="@+id/doThisMessage"
+        android:background="#CCCCCC"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@id/submitButton"
+        app:layout_constraintEnd_toEndOf="@+id/submitButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doThisMessage"
+        app:layout_constraintVertical_bias="0.0">
+
+        <requestFocus />
+    </EditText>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
