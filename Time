@@ -1,0 +1,54 @@
+package com.example.myapplication1;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+import android.view.View;
+
+import android.widget.Button;
+
+import android.widget.EditText;
+
+import android.content.Intent;
+
+
+public class MainActivity extends AppCompatActivity {
+
+    private Button Button;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Button settime =  findViewById(R.id.settime);
+        Button addtasks = findViewById(R.id.addtasks);
+
+
+        settime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText subject = findViewById(R.id.subject);
+                EditText addTime = findViewById(R.id.addTime);
+                EditText endTime = findViewById(R.id.endTime);
+
+                subject.getText().toString();
+                addTime.getText().toString();
+                endTime.getText().toString();
+            }
+        });
+
+        addtasks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivity();
+            }
+        });
+    }
+
+    public void openActivity(){
+       // Intent intent = new Intent(this, Activity.class);
+        //startActivity(intent);
+    }
+}
